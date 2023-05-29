@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void draw(int blocks);
+void recursion_draw(int blocks);
 
 int main(void)
 {
@@ -9,6 +10,9 @@ int main(void)
 
     draw(number_of_blocks);
 
+    printf ("\nRecursion: \n");
+
+    recursion_draw(number_of_blocks);
 }
 
 void draw(int blocks)
@@ -21,4 +25,22 @@ void draw(int blocks)
         }
         printf ("\n");
     }
+}
+
+void recursion_draw(int blocks)
+{
+    // Base case
+    if (blocks == 0)
+    {
+        return;
+    }
+
+    recursion_draw(blocks - 1);
+
+    for (int i = 0; i < blocks; i++)
+    {
+        printf ("#");
+    }
+
+    printf ("\n");
 }
